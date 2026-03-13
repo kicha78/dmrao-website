@@ -23,29 +23,18 @@ padding:15px;
 border-bottom:3px solid gold;
 }
 
-h1{
-color:gold;
-margin:5px;
-}
+h1{color:gold;}
+h2{color:gold;}
 
-h2{
-color:gold;
-}
-
-.photo{
-text-align:center;
-margin:10px;
-}
-
+.photo{text-align:center;}
 .photo img{
 width:130px;
-border-radius:10px;
 border:2px solid gold;
+border-radius:10px;
+margin-top:10px;
 }
 
-.container{
-padding:15px;
-}
+.container{padding:15px;}
 
 .card{
 background:#5c3a35;
@@ -55,27 +44,13 @@ border-radius:10px;
 border:1px solid gold;
 }
 
-ul{
-line-height:1.8;
-}
+ul{line-height:1.8;}
 
-.contact{
-font-size:18px;
-}
+video{width:100%;margin-top:10px;}
 
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:green;
-color:white;
-padding:12px;
-border-radius:50%;
-font-size:22px;
-text-decoration:none;
-}
+iframe{width:100%;height:200px;margin-top:10px;}
 
-form input, form textarea{
+input, textarea{
 width:100%;
 padding:10px;
 margin:5px 0;
@@ -91,15 +66,16 @@ font-weight:bold;
 cursor:pointer;
 }
 
-video{
-width:100%;
-margin-top:10px;
-}
-
-iframe{
-width:100%;
-height:200px;
-margin-top:10px;
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:green;
+color:white;
+padding:12px;
+border-radius:50%;
+text-decoration:none;
+font-size:22px;
 }
 
 footer{
@@ -110,7 +86,6 @@ border-top:3px solid gold;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -125,11 +100,8 @@ Hari Shrivothama | Vaayujeevothama
 </header>
 
 
-
 <div class="photo">
-
 <img src="photo.jpg">
-
 </div>
 
 
@@ -144,9 +116,7 @@ Hari Shrivothama | Vaayujeevothama
 <ul>
 <li>Gruha Pravesha</li>
 <li>Homas</li>
-<li>Vrathas</li>
 <li>Poojas</li>
-<li>Aparakaryas</li>
 <li>Vaastu Guidance</li>
 <li>Horoscope Matching</li>
 <li>Muhurtha Selection</li>
@@ -162,9 +132,8 @@ Hari Shrivothama | Vaayujeevothama
 
 <ul>
 <li>Vaastu Problems</li>
-<li>Photo Yantras</li>
 <li>Pyramids</li>
-<li>Energy Correction</li>
+<li>Yantras</li>
 <li>Dosha Parihara</li>
 </ul>
 
@@ -177,11 +146,11 @@ Hari Shrivothama | Vaayujeevothama
 <h2>Service Videos</h2>
 
 <video controls>
-<source src="video1.mp4" type="video/mp4">
+<source src="video1.mp4">
 </video>
 
 <video controls>
-<source src="video2.mp4" type="video/mp4">
+<source src="video2.mp4">
 </video>
 
 </div>
@@ -193,24 +162,7 @@ Hari Shrivothama | Vaayujeevothama
 <h2>YouTube Videos</h2>
 
 <iframe src="https://www.youtube.com/embed/VIDEOID1"></iframe>
-
 <iframe src="https://www.youtube.com/embed/VIDEOID2"></iframe>
-
-</div>
-
-
-
-<div class="card contact">
-
-<h2>Contact</h2>
-
-Mobile: 8904549736<br>
-Mobile: 8098231060<br><br>
-
-No.597, 1st Main, 2nd Cross, 3rd Phase<br>
-Gurusarvabhouma Nagar, ITI Layout<br>
-Opp: R.R Nagar Arch, Nayandahalli<br>
-Bangalore – 560039
 
 </div>
 
@@ -218,19 +170,32 @@ Bangalore – 560039
 
 <div class="card">
 
-<h2>Booking Form</h2>
+<h2>Book Service</h2>
 
-<form>
+<input id="name" type="text" placeholder="Name">
 
-<input type="text" placeholder="Name">
+<input id="mobile" type="text" placeholder="Mobile">
 
-<input type="text" placeholder="Mobile">
+<textarea id="service" placeholder="Service Needed"></textarea>
 
-<textarea placeholder="Service Needed"></textarea>
+<br>
 
-<button>Send</button>
+<button type="button" onclick="sendWhatsApp()">
+Send
+</button>
 
-</form>
+</div>
+
+
+
+<div class="card">
+
+<h2>Contact</h2>
+
+Mobile: 8904549736<br>
+Mobile: 8098231060<br><br>
+
+Bangalore – 560039
 
 </div>
 
@@ -251,6 +216,32 @@ W
 Service with Devotion
 
 </footer>
+
+
+
+<script>
+
+function sendWhatsApp(){
+
+var name = document.getElementById("name").value;
+var mobile = document.getElementById("mobile").value;
+var service = document.getElementById("service").value;
+
+var phone = "918904549736";
+
+var message =
+"Name: " + name +
+"%0AMobile: " + mobile +
+"%0AService: " + service;
+
+var url =
+"https://wa.me/" + phone + "?text=" + message;
+
+window.open(url, "_blank");
+
+}
+
+</script>
 
 
 </body>
